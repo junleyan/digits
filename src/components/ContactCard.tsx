@@ -2,7 +2,8 @@
 
 import Card from 'react-bootstrap/Card';
 import Image from 'next/image';
-import { Contact } from '@/lib/validationSchemas';
+import { Contact } from '@prisma/client';
+import Link from 'next/link';
 
 const ContactCard = ({ contact }: { contact: Contact }) => (
   <Card className="h-100">
@@ -22,6 +23,10 @@ const ContactCard = ({ contact }: { contact: Contact }) => (
       <Card.Subtitle className="mb-2 text-muted">{contact.address}</Card.Subtitle>
       <Card.Text>{contact.description}</Card.Text>
     </Card.Body>
+    <Card.Footer>
+      <Link href={`edit/${contact.id}`}>Edit</Link>
+    </Card.Footer>
+
   </Card>
 );
 
