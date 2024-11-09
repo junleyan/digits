@@ -7,6 +7,25 @@ export const AddStuffSchema = Yup.object({
   owner: Yup.string().required(),
 });
 
+export const AddContactScheme = Yup.object({
+  firstName: Yup.string().required(),
+  lastName: Yup.string().required(),
+  address: Yup.string().required(),
+  image: Yup.string().required(),
+  description: Yup.string().required(),
+  owner: Yup.string().required(),
+});
+
+export const EditContactScheme = Yup.object({
+  id: Yup.number().required(),
+  firstName: Yup.string().required(),
+  lastName: Yup.string().required(),
+  address: Yup.string().required(),
+  image: Yup.string().required(),
+  description: Yup.string().required(),
+  owner: Yup.string().required(),
+});
+
 export const EditStuffSchema = Yup.object({
   id: Yup.number().required(),
   name: Yup.string().required(),
@@ -14,12 +33,3 @@ export const EditStuffSchema = Yup.object({
   condition: Yup.string().oneOf(['excellent', 'good', 'fair', 'poor']).required(),
   owner: Yup.string().required(),
 });
-
-export interface Contact {
-  firstName: string;
-  lastName: string;
-  address: string;
-  image: string;
-  description: string;
-  owner: string;
-}
